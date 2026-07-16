@@ -28,7 +28,7 @@ const setupTextHover = (container, type) => {
     const animateLetter = (letter, weight, duration = 0.25) => {
         return gsap.to(letter, {
             duration,
-            ease: 'power2.out',
+            ease: "power2.out",
             fontVariationSettings: `'wght' ${Weight}`,
         });
     };
@@ -39,7 +39,7 @@ const setupTextHover = (container, type) => {
         letters.forEach((letter) => {
             const { left: l, width: w} = letter.getBoundingClientRect();
             const distance = Math.abs(mouseX - (l - left + w / 2));
-            const intensity = Math.exp(-(distance ** 2) / 2000);
+            const intensity = Math.exp(-(distance ** 2) / 20000);
             animateLetter(letter, min + (max - min) * intensity);
         });
     };
